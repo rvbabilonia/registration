@@ -19,14 +19,6 @@ class RegistrationForm extends Component {
         this.renderForm = this.renderForm.bind(this);
     }
 
-    // getInitialState() {
-    //     return {
-    //         errors: [],
-    //         status: 'new',
-    //         loading: false
-    //     }
-    // }
-
     submitForm(e) {
         e.preventDefault();
         const { email, nickname, emailVerification, password, passwordVerification } = this;
@@ -61,8 +53,8 @@ class RegistrationForm extends Component {
         });
 
 
-        axios.post('https://0754bj5vsf.execute-api.ap-southeast-2.amazonaws.com/v1/registration', data, {
-            headers: { 'Content-Type': 'application/json' }
+        axios.post('https://0754bj5vsf.execute-api.ap-southeast-2.amazonaws.com/dev/v1/registration', data, {
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
         }).then(response => {
             this.setState({
                 status: 'success'
